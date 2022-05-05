@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "bddpictogrames"
+  },
+  "targets": {
+    "bddpictogrames": {
+      "hosting": {
+        "Pictograma": [
+          "bddpictogrames"
+        ]
+      }
+    }
+  }
+}

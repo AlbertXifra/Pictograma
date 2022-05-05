@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Pictograma:build:production",
+            "firebaseProject": "bddpictogrames",
+            "firebaseHostingSite": "bddpictogrames"
+          }
         }
       }
     }
