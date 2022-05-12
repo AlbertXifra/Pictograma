@@ -1,0 +1,37 @@
+<div class="pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2" routerLink="/pictograms-list">Add Pictogram</h2>
+</div>
+
+<form [formGroup]="addPictogram" (ngSubmit)="submitPictogramData()" novalidate>
+    <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <!-- Name -->
+                    <input type="text" formControlName="namePictogram" class="form-control" placeholder="Name of pictogram" required />
+                    <!-- errors-->
+                    <p *ngIf="namePictogram.touched && namePictogram.invalid" class="error">
+                        <sup>*</sup>Please enter atleast pictogram name
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <!-- Image -->
+                    <input type="text" formControlName="imagePictogram" class="form-control" placeholder="Url image" required />
+                    <!-- errors-->
+                    <p *ngIf="imagePictogram.touched && imagePictogram.invalid" class="error">
+                        <sup>*</sup>Please provide an image
+                    </p>
+                </div>
+            </div>
+            <div class="form-group text-right">
+                <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
+                <button type="submit" class="btn btn-success" [disabled]="!addPictogram.valid" routerLink="/pictograms-list">Add Pictogram</button>
+            </div>
+        </div>
+    </div>
+   
+</form>
+
+<router-outlet></router-outlet>

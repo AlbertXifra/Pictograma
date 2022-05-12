@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h2 class="h2">Pictogram List</h2>
+  <a routerLink="/add-pictogram" class="btn btn-success" *ngIf="hidenNoPictograms">Add Pictogram</a>
+</div>
+
+<div class="pricing-header mx-auto">
+    <div class="no-data text-center" *ngIf="preLoader">
+      <img src="assets/preloader.gif" class="preloader-icon" alt="No pictogram" />
+    </div>
+  
+    <div class="no-data text-center" *ngIf="noData">
+      <img src="assets/no.png" class="nodata-msg" alt="No pictogram" />
+      <p class="nodata-msg">No pictogram added yet!</p>
+      <a routerLink="/add-pictogram" class="btn btn-success"> Add Pictogram </a>
+    </div>
+
+    <div class="table-responsive" *ngIf="hidenNoPictograms">
+    <table
+      class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg"
+    >
+      <thead>
+        <tr>
+          <th scope="col">Name Pictogram</th>
+          <th scope="col">Image Pictogram</th>
+          <th class="text-center" scope="col">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let pictogram of Pictogram | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
+          <th scope="row">{{ pictogram.$key }}</th>
+          <td>{{ pictogram.namePictogram }}</td> 
+          <td>{{ pictogram.imagePictogram }}</td>
+          <td class="text-center action-block">
+            <span class="mr-2 btn btn-outline-primary btn-sm" routerLink="/edit-student/{{ pictogram.$key }}">Edit</span>
+            <span class="btn btn-outline-danger btn-sm" (click)="deletePictogram(pictogram)">Delete</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+<router-outlet></router-outlet>
