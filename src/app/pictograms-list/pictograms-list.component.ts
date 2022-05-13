@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../shared/crud.service';
 import { Pictogram } from '../shared/pictogram';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-pictograms-list',
@@ -16,7 +17,7 @@ export class PictogramsListComponent implements OnInit {
   noData: boolean = false;
   preLoader: boolean = true;
 
-  constructor(public crudApi: CrudService, public toastr: ToastrService) { }
+  constructor(public crudApi: CrudService, public toastr: ToastrService, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.dataState();

@@ -13,6 +13,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 
 //Import dels Components i formularis
+import { AuthService } from '../app/shared/auth.service';
 import { AddPictogramComponent } from './add-pictogram/add-pictogram.component';
 import { PictogramsListComponent } from './pictograms-list/pictograms-list.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -38,7 +39,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ToastrModule.forRoot(),
     NgxPaginationModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
