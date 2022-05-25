@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../shared/crud.service';
-import { Pictogram } from '../shared/pictogram';
+import { Pictogram } from './../shared/pictogram';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-pictograms-list',
@@ -13,16 +12,16 @@ export class PictogramsListComponent implements OnInit {
 
   p: number = 1;
   Pictogram: Pictogram[];
-  hidenNoPictograms: boolean = false;
+  hidenWhenNoPictograms: boolean = false;
   noData: boolean = false;
   preLoader: boolean = true;
 
-  constructor(public crudApi: CrudService, public toastr: ToastrService, public authService: AuthService) { }
+  constructor(public crudApi: CrudService, public toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.dataState();
-    let s = this.crudApi.GetPictogramList();
-    s.snapshotChanges().subscribe((data) => {
+    let p = this.crudApi.GetPictogramsList();
+    p.snapshotChanges().subscribe((data) => {
       this.Pictogram = [];
       data.forEach((item) => {
         let a = item.payload.toJSON();
@@ -34,15 +33,15 @@ export class PictogramsListComponent implements OnInit {
 
   dataState() {
     this.crudApi
-      .GetPictogramList()
+      .GetPictogramsList()
       .valueChanges()
       .subscribe((data) => {
         this.preLoader = false;
         if(data.length <= 0) {
-          this.hidenNoPictograms = false;
+          this.hidenWhenNoPictograms = false;
           this.noData = true;
         } else {
-          this.hidenNoPictograms = true;
+          this.hidenWhenNoPictograms = true;
           this.noData = false;
         }
       });

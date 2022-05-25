@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Pictogram } from '../shared/pictogram';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class CrudService {
   pictogramsRef: AngularFireList<any>;
   pictogramRef: AngularFireObject<any>;
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {}
 
   //Create Pictogram
   AddPictogram(pictogram: Pictogram) {
@@ -20,12 +21,19 @@ export class CrudService {
     });
   }
 
-  GetPictogramList() {
+  //Fetch Single Pictogram Object
+  GetPictogram(id: string) {
+    this.pictogramRef = this.db.object('pictogram-list/' + id);
+    return this.pictogramRef;
+  }
+
+  //Fetch Pictogram List
+  GetPictogramsList() {
     this.pictogramsRef = this.db.list('pictograms-list')
     return this.pictogramsRef;
   }
 
-  //Create Pictogram
+  //Update Pictogram Object
   UpdatePictogram(pictogram: Pictogram) {
     this.pictogramRef.update({ 
       namePictogram: pictogram.namePictogram,
@@ -33,6 +41,7 @@ export class CrudService {
     });
   }
 
+  //Delete Pictogram Object
   DeletePictogram(id: string) {
     this.pictogramRef = this.db.object('pictograms-list/' + id);
     this.pictogramRef.remove();

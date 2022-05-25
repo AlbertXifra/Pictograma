@@ -7,6 +7,7 @@ export const environment = {
   firebaseConfig: {
     apiKey: "AIzaSyBOHJCBPGF-zRo0rDBQutj9WNO2CYE_49M",
     authDomain: "bddpictogrames.firebaseapp.com",
+    databaseURL: "https://bddpictogrames-default-rtdb.firebaseio.com",
     projectId: "bddpictogrames",
     storageBucket: "bddpictogrames.appspot.com",
     messagingSenderId: "900088564570",

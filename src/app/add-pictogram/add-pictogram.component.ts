@@ -10,37 +10,37 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddPictogramComponent implements OnInit {
 
-  public addPictogram: FormGroup; 
+  public pictogramForm: FormGroup; 
 
-  constructor(    public crudApi: CrudService, public fb: FormBuilder, public toastr: ToastrService) { }
+  constructor(public crudApi: CrudService, public fb: FormBuilder, public toastr: ToastrService) { }
 
   ngOnInit() {
-    this.crudApi.GetPictogramList();
-    this.adPictogram();
+    this.crudApi.GetPictogramsList();
+    this.pictoForm();
   }
 
-  adPictogram() {
-    this.addPictogram = this.fb.group({
+  pictoForm() {
+    this.pictogramForm = this.fb.group({
       namePictogram: ['', Validators.required],
       imagePictogram: ['', Validators.required]
     });
   }
 
   get namePictogram() {
-    return this.addPictogram.get('namePictogram');
+    return this.pictogramForm.get('namePictogram');
   }
 
   get imagePictogram() {
-    return this.addPictogram.get('imagePictogram');
+    return this.pictogramForm.get('imagePictogram');
   }
 
   ResetForm() {
-    this.addPictogram.reset();
+    this.pictogramForm.reset();
   }
 
   submitPictogramData() {
-    this.crudApi.AddPictogram(this.addPictogram.value);
-    this.toastr.success(this.addPictogram.controls['namePictogram'].value + 'successfully added!');
+    this.crudApi.AddPictogram(this.pictogramForm.value);
+    this.toastr.success(this.pictogramForm.controls['namePictogram'].value + 'successfully added!');
     this.ResetForm();
   }
 }

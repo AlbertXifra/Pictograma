@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://localhost:4200/pictograms-list -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Pictograma</title>
+  <!--<base href="/">--><base href=".">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="http://localhost:4200/favicon.ico">
+<link rel="stylesheet" href="./Pictograma_files/styles.css"><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwaWN0b2dyYW1zLWxpc3QuY29tcG9uZW50LmNzcyJ9 */</style><style>
+.ngx-pagination {
+  margin-left: 0;
+  margin-bottom: 1rem; }
+  .ngx-pagination::before, .ngx-pagination::after {
+    content: ' ';
+    display: table; }
+  .ngx-pagination::after {
+    clear: both; }
+  .ngx-pagination li {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    margin-right: 0.0625rem;
+    border-radius: 0; }
+  .ngx-pagination li {
+    display: inline-block; }
+  .ngx-pagination a,
+  .ngx-pagination button {
+    color: #0a0a0a; 
+    display: block;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 0; }
+    .ngx-pagination a:hover,
+    .ngx-pagination button:hover {
+      background: #e6e6e6; }
+  .ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #2199e8;
+    color: #fefefe;
+    cursor: default; }
+  .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default; } 
+    .ngx-pagination .disabled:hover {
+      background: transparent; }
+  .ngx-pagination a, .ngx-pagination button {
+    cursor: pointer; }
+
+.ngx-pagination .pagination-previous a::before,
+.ngx-pagination .pagination-previous.disabled::before { 
+  content: '«';
+  display: inline-block;
+  margin-right: 0.5rem; }
+
+.ngx-pagination .pagination-next a::after,
+.ngx-pagination .pagination-next.disabled::after {
+  content: '»';
+  display: inline-block;
+  margin-left: 0.5rem; }
+
+.ngx-pagination .show-for-sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); }
+.ngx-pagination .small-screen {
+  display: none; }
+@media screen and (max-width: 601px) {
+  .ngx-pagination.responsive .small-screen {
+    display: inline-block; } 
+  .ngx-pagination.responsive li:not(.small-screen):not(.pagination-previous):not(.pagination-next) {
+    display: none; }
+}
+  </style></head>
+<body cz-shortcut-listen="true">
+  <app-root _nghost-rsa-c56="" ng-version="13.3.6"><nav _ngcontent-rsa-c56="" class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow"><a _ngcontent-rsa-c56="" routerlink="/pictograms-list" class="navbar-brand col-sm-3 col-md-2 mr-0" ng-reflect-router-link="/pictograms-list" href="http://localhost:4200/pictograms-list"><span _ngcontent-rsa-c56="" class="dasboard-text">Dashboard</span></a><ul _ngcontent-rsa-c56="" class="navbar-nav px-3"><li _ngcontent-rsa-c56="" class="nav-item text-nowrap"><a _ngcontent-rsa-c56="" routerlink="/pictograms-list" class="nav-link" ng-reflect-router-link="/pictograms-list" href="http://localhost:4200/pictograms-list"><span _ngcontent-rsa-c56="" class="user-image" style="background-image: url(&#39;assets/user.png&#39;);"></span>Login with Google </a></li></ul></nav><div _ngcontent-rsa-c56="" class="container-fluid"><div _ngcontent-rsa-c56="" class="row"><nav _ngcontent-rsa-c56="" class="col-md-2 d-md-block bg-light sidebar"><div _ngcontent-rsa-c56="" class="sidebar-sticky"><ul _ngcontent-rsa-c56="" class="nav flex-column"><li _ngcontent-rsa-c56="" class="nav-item"><a _ngcontent-rsa-c56="" routerlink="/add-pictogram" routerlinkactive="active" class="nav-link" ng-reflect-router-link="/add-pictogram" ng-reflect-router-link-active="active" href="http://localhost:4200/add-pictogram">Add Pictogram</a></li><li _ngcontent-rsa-c56="" class="nav-item"><a _ngcontent-rsa-c56="" routerlink="/pictograms-list" routerlinkactive="active" class="nav-link active" ng-reflect-router-link="/pictograms-list" ng-reflect-router-link-active="active" href="http://localhost:4200/pictograms-list">Pictogram List</a></li></ul></div></nav><main _ngcontent-rsa-c56="" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div _ngcontent-rsa-c56="" class="inner-adjust"><router-outlet _ngcontent-rsa-c56=""></router-outlet><app-pictograms-list _nghost-rsa-c54=""><div _ngcontent-rsa-c54="" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"><h2 _ngcontent-rsa-c54="" class="h2">Pictogram List</h2><a _ngcontent-rsa-c54="" routerlink="/add-pictogram" class="btn btn-success" ng-reflect-router-link="/add-pictogram" href="http://localhost:4200/add-pictogram">Add Pictogram</a><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div><div _ngcontent-rsa-c54="" class="pricing-header mx-auto"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><div _ngcontent-rsa-c54="" class="table-responsive"><table _ngcontent-rsa-c54="" class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg"><thead _ngcontent-rsa-c54=""><tr _ngcontent-rsa-c54=""><th _ngcontent-rsa-c54="" scope="col">Name Pictogram</th><th _ngcontent-rsa-c54="" scope="col">Image Pictogram</th><th _ngcontent-rsa-c54="" scope="col" class="text-center">Edit</th></tr></thead><tbody _ngcontent-rsa-c54=""><tr _ngcontent-rsa-c54=""><td _ngcontent-rsa-c54="">Hola</td><td _ngcontent-rsa-c54=""><img src="C:\fakepath\hola.png"/></td><td _ngcontent-rsa-c54="" class="text-center action-block"><span _ngcontent-rsa-c54="" class="mr-2 btn btn-outline-primary btn-sm" tabindex="0" ng-reflect-router-link="/edit-pictogram/-N2RxitAIMC3a1">Edit</span><span _ngcontent-rsa-c54="" class="btn btn-outline-danger btn-sm">Delete</span></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--></tbody></table></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><pagination-controls _ngcontent-rsa-c54=""><pagination-template ng-reflect-max-size="7"><ul class="ngx-pagination" aria-label="Pagination"><li class="pagination-previous disabled"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><span> Previous <span class="show-for-sr">page</span></span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></li><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><li class="small-screen"> 1 / 1 </li><li class="current"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><span class="show-for-sr">You're on page </span><span>1</span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></li><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><li class="pagination-next disabled"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><span> Next <span class="show-for-sr">page</span></span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></li><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></ul><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></pagination-template></pagination-controls></div><router-outlet _ngcontent-rsa-c54=""></router-outlet><!--container--></app-pictograms-list><!--container--></div></main></div></div></app-root>
+<script src="./Pictograma_files/runtime.js.descarga" type="module"></script><script src="./Pictograma_files/polyfills.js.descarga" type="module"></script><script src="./Pictograma_files/styles.js.descarga" defer=""></script><script src="./Pictograma_files/vendor.js.descarga" type="module"></script><script src="./Pictograma_files/main.js.descarga" type="module"></script>
+
+</body></html>

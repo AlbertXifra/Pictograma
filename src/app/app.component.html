@@ -1,1 +1,43 @@
-<router-outlet></router-outlet>
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <!-- Home Page -->
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/pictograms-list">
+      <span class="dasboard-text">Dashboard</span>
+    </a>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <!-- Autentification with Google -->
+        <a class="nav-link" routerLink="/pictograms-list" (click)="authService.GoogleAuth()">
+            <span class="user-image" style="background-image: url('assets/user.png')"></span>Login with Google
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+  <!-- Sidebar navigation -->
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <!-- Link for go Component Add-Pictogram -->
+              <a class="nav-link" routerLink="/add-pictogram" routerLinkActive="active">Add Pictogram</a>
+            </li>
+            <li class="nav-item">
+              <!-- Link for go Component List-Pictogram -->
+              <a class="nav-link" routerLink="/pictograms-list"routerLinkActive="active">Pictogram List</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <!-- Main content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="inner-adjust">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+    </div>
+  </div>
+  
