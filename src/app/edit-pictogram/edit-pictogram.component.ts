@@ -48,10 +48,8 @@ export class EditPictogramComponent implements OnInit {
 
   updateForm() {
     this.crudApi.UpdatePictogram(this.editForm.value);
-    this.toastr.success(
-      this.editForm.controls['namePictogram'].value + 'update successfully'
-    );
-    this.router.navigate(['view-pictograms']);
+    this.toastr.success(this.editForm.controls['namePictogram'].value + 'update successfully');
+    this.router.navigate(['/pictograms-list']);
   }
 
 }

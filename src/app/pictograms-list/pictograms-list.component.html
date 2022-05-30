@@ -16,7 +16,7 @@
 
     <div class="table-responsive row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" *ngIf="hidenWhenNoPictograms">
       <div class="card" *ngFor=" let pictogram of Pictogram | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
-        <img src="{{ pictogram.imagePictogram }}" alt="{{ pictogram.imagePictogram }}"/>
+        <img src="{{ pictogram.imagePictogram }}"/>
         <div class="container">
           <p>{{ pictogram.namePictogram }}</p>
           <span class="mr-2 btn btn-outline-primary btn-sm" routerLink="/edit-pictogram/{{ pictogram.$key }}">Edit</span>
@@ -26,6 +26,7 @@
   </div>
 
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <script src="script.js"></script>
 </div>
 
 <router-outlet></router-outlet>

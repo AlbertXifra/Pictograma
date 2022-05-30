@@ -23,7 +23,7 @@ export class CrudService {
 
   //Fetch Single Pictogram Object
   GetPictogram(id: string) {
-    this.pictogramRef = this.db.object('pictogram-list/' + id);
+    this.pictogramRef = this.db.object('pictograms-list/' + id);
     return this.pictogramRef;
   }
 
