@@ -6,13 +6,13 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AuthService {
   constructor(
-    public afAuth: AngularFireAuth // Inject Firebase auth service
+    public afAuth: AngularFireAuth // Afegir el google auth en el firebase
   ) {}
-  // Sign in with Google
+  // Iniciar Sessió amb Google
   GoogleAuth() {
     return this.AuthLogin(new GoogleAuthProvider());
   }
-  // Auth logic to run auth providers
+  // Iniciar Sessió automaticament
   AuthLogin(provider) {
     return this.afAuth
       .signInWithPopup(provider)

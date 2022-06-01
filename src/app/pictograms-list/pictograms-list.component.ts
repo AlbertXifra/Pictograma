@@ -10,14 +10,17 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PictogramsListComponent implements OnInit {
 
-  p: number = 1;
-  Pictogram: Pictogram[];
-  hidenWhenNoPictograms: boolean = false;
-  noData: boolean = false;
-  preLoader: boolean = true;
+  //Afegim els variables necessaris per poder fer les operacions
+  p: number = 1; //Afegir el nombre de pàgines
+  Pictogram: Pictogram[]; //Array dels pictogrames
+  hidenWhenNoPictograms: boolean = false; // Per comprovar si no hi han pictogrames
+  noData: boolean = false; // Per fer la confirmació que no hi han pictogrames
+  preLoader: boolean = true; //Per mirar si ha de carregar els pictogrames si n'hi han
 
+  //Afegir en el cosntructor el CrudService per fer la relació entra la base de dades i el projecte, el toast per poder fer alguna animació
   constructor(public crudApi: CrudService, public toastr: ToastrService) { }
 
+  //En aquesta funció serà per poder fer els pictogrames que vols per pàgina
   ngOnInit(): void {
     this.dataState();
     let p = this.crudApi.GetPictogramsList();
@@ -31,6 +34,7 @@ export class PictogramsListComponent implements OnInit {
     });
   }
 
+  //Aquesta fució serà per saber si a la base de dades hi ha pictogrames o no
   dataState() {
     this.crudApi
       .GetPictogramsList()
@@ -47,6 +51,7 @@ export class PictogramsListComponent implements OnInit {
       });
   }
 
+  //Aquesta funció serveix per eliminar un pictograma
   deletePictogram(pictogram) {
     if (window.confirm('Are sure you want to delete this pictogram ?')) {
       this.crudApi.DeletePictogram(pictogram.$key);

@@ -13,7 +13,7 @@ export class CrudService {
 
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {}
 
-  //Create Pictogram
+  //Crear Pictograma
   AddPictogram(pictogram: Pictogram) {
     this.pictogramsRef.push({ 
       namePictogram: pictogram.namePictogram,
@@ -21,19 +21,19 @@ export class CrudService {
     });
   }
 
-  //Fetch Single Pictogram Object
+  //Agafar un pictograma en concret a través de la seva ip
   GetPictogram(id: string) {
     this.pictogramRef = this.db.object('pictograms-list/' + id);
     return this.pictogramRef;
   }
 
-  //Fetch Pictogram List
+  //Afagar tots els pictogrames
   GetPictogramsList() {
     this.pictogramsRef = this.db.list('pictograms-list')
     return this.pictogramsRef;
   }
 
-  //Update Pictogram Object
+  //Editar Pictograma
   UpdatePictogram(pictogram: Pictogram) {
     this.pictogramRef.update({ 
       namePictogram: pictogram.namePictogram,
@@ -41,7 +41,7 @@ export class CrudService {
     });
   }
 
-  //Delete Pictogram Object
+  //Eliminar Pcitograma
   DeletePictogram(id: string) {
     this.pictogramRef = this.db.object('pictograms-list/' + id);
     this.pictogramRef.remove();

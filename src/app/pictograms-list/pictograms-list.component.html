@@ -1,32 +1,41 @@
+<!-- Afegim un botó a dalt de tot a la dreta per si volem afegir un nou pictograma -->
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h2 class="h2">Pictogram List</h2>
-  <a routerLink="/add-pictogram" class="btn btn-success" *ngIf="hidenWhenNoPictograms">Add Pictogram</a>
+  <h2 class="h2">Llista Pictogrames</h2>
+  <a routerLink="/add-pictogram" class="btn btn-success" *ngIf="hidenWhenNoPictograms">Afegir Pictograma</a>
 </div>
 
 <div class="pricing-header mx-auto">
-    <div class="no-data text-center" *ngIf="preLoader">
-      <img src="assets/loading.gif" class="preloader-icon" alt="No pictogram" />
-    </div>
-  
-    <div class="no-data text-center" *ngIf="noData">
-      <img src="assets/no.gif" class="nodata-msg" alt="No pictogram" />
-      <p class="nodata-msg">No pictogram added yet!</p>
-      <a routerLink="/add-pictogram" class="btn btn-success"> Add Pictogram </a>
-    </div>
-
-    <div class="table-responsive row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" *ngIf="hidenWhenNoPictograms">
-      <div class="card" *ngFor=" let pictogram of Pictogram | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
-        <img src="{{ pictogram.imagePictogram }}"/>
-        <div class="container">
-          <p>{{ pictogram.namePictogram }}</p>
-          <span class="mr-2 btn btn-outline-primary btn-sm" routerLink="/edit-pictogram/{{ pictogram.$key }}">Edit</span>
-          <span class="btn btn-outline-danger btn-sm" (click)="deletePictogram(pictogram)">Delete</span>
-        </div>
-      </div>
+  <!-- En aquest primer div fem servir el preolader per fer que sortir un gif en forma de carregar el document per buscar s'hi han pictogrames
+  a la base de dades -->
+  <div class="no-data text-center" *ngIf="preLoader">
+    <img src="assets/loading.gif" class="preloader-icon" alt="No pictogram" />
   </div>
 
+  <!-- En aquest segon div el que fem és que si no en troba cap surt un gif de un x per ir error  i ens apareix el boto per afegir el primer
+  pictograma per poderlo afegir -->
+  <div class="no-data text-center" *ngIf="noData">
+    <img src="assets/no.gif" class="nodata-msg" alt="No pictogram" />
+    <p class="nodata-msg">Ningun pictograma a la base de dades!</p>
+    <a routerLink="/add-pictogram" class="btn btn-success"> Afegir Pictograma </a>
+  </div>
+
+  <!-- En aquest div el que fem es que ens mostrir tots els pictogrames que ha trobat a la base de dades -->
+  <div class="table-responsive row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" *ngIf="hidenWhenNoPictograms">
+    <!-- Aquest div serveix per dir quants pictogrames vols per pàgina i per quina pàgina vols començar a veurels -->
+    <div class="card" *ngFor=" let pictogram of Pictogram | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
+      <!-- Aqui mostrem la imatge del pictograma -->
+      <img src="{{ pictogram.imagePictogram }}" alt="{{ pictogram.namePictogram }}"/>
+      <!-- En aquest div mostrem el nom del pictograma amés del botó editar i eliminar -->
+      <div class="container">
+        <p>{{ pictogram.namePictogram }}</p>
+        <span class="mr-2 btn btn-outline-primary btn-sm" routerLink="/edit-pictogram/{{ pictogram.$key }}">Editar</span>
+        <span class="btn btn-outline-danger btn-sm" (click)="deletePictogram(pictogram)">Eliminar</span>
+      </div>
+    </div>
+  </div>
+  <!-- Aquest pagination controls serveix per fer que funcioni les pàgines -->
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  <script src="script.js"></script>
 </div>
 
+<!-- Serveix perque app-routing funcioni -->
 <router-outlet></router-outlet>
