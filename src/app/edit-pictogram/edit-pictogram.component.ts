@@ -56,7 +56,7 @@ export class EditPictogramComponent implements OnInit {
   // Aquesta funció serveix per actualitzar el formulari
   updateForm() {
     this.crudApi.UpdatePictogram(this.editForm.value);
-    this.toastr.success(this.editForm.controls['namePictogram'].value + 'update successfully');
+    this.toastr.success(this.editForm.controls['namePictogram'].value + 'actualizat correctament');
     this.router.navigate(['/pictograms-list']);
   }
 

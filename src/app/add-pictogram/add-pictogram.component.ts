@@ -40,7 +40,7 @@ export class AddPictogramComponent implements OnInit {
 
   submitPictogramData() {
     this.crudApi.AddPictogram(this.pictogramForm.value);
-    this.toastr.success(this.pictogramForm.controls['namePictogram'].value + 'successfully added!');
+    this.toastr.success(this.pictogramForm.controls['namePictogram'].value + 'afegit correctament!');
     this.ResetForm();
   }
 }

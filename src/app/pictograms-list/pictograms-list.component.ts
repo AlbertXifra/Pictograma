@@ -53,9 +53,9 @@ export class PictogramsListComponent implements OnInit {
 
   //Aquesta funció serveix per eliminar un pictograma
   deletePictogram(pictogram) {
-    if (window.confirm('Are sure you want to delete this pictogram ?')) {
+    if (window.confirm('Estas segur que vols eliminar aquest pictograma ?')) {
       this.crudApi.DeletePictogram(pictogram.$key);
-      this.toastr.success(pictogram.firstName + ' successfully deleted!');
+      this.toastr.success(pictogram.firstName + ' eliminat!');
     }
   }
 
