@@ -11,7 +11,7 @@
                     <input type="text" formControlName="namePictogram" class="form-control" required placeholder="Nom Pictograma, ex: Balón" />
                     <!-- Error per quan el camp no està omplert -->
                     <p *ngIf="namePictogram.touched && namePictogram.invalid" class="error">
-                        <sup>*</sup>Siusplau entra un nom pel nou pictograma.
+                        <sup>*</sup>Si us plau, entra un nom pel nou pictograma.
                     </p>
                 </div>
                 <div class="col-md-12 mb-3">
@@ -19,12 +19,12 @@
                     <input type="url" formControlName="imagePictogram" class="form-control" accept=".png. .jpg" required placeholder="Url imatge, ex: https://educasaac.educa.madrid.org/uploads/images/"/>
                     <!-- Error per quan el camp no està omplert -->
                     <p *ngIf="imagePictogram.touched && imagePictogram.invalid" class="error">
-                        <sup>*</sup>Siusplau entre una url vàlida per l'imatge.
+                        <sup>*</sup>Si us plau, entre una url vàlida per la imatge.
                     </p>
                 </div>
             </div>
             <div class="form-group text-right">
-                <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
+                <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reiniciar</button>
                 <button type="submit" class="btn btn-success" [disabled]="!pictogramForm.valid">Afegir Pictograma</button>
             </div>
         </div>

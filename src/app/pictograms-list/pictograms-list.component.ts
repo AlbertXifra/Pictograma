@@ -55,7 +55,7 @@ export class PictogramsListComponent implements OnInit {
   //Aquesta funció serveix per eliminar un pictograma
   deletePictogram(pictogram) {
     Swal.fire({
-      title: "Estas segur que vols eliminar aquest pictograma?",
+      title: "Estàs segur que vols eliminar aquest pictograma?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -73,7 +73,7 @@ export class PictogramsListComponent implements OnInit {
       } else {
         Swal.fire({
           icon: 'error',
-          title: 'Operació cancelada',
+          title: 'Operació cancel·lada',
           showConfirmButton: false, 
           timer: 1500
         })
