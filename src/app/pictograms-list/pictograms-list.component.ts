@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../shared/crud.service';
 import { Pictogram } from './../shared/pictogram';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pictograms-list',
@@ -53,10 +54,31 @@ export class PictogramsListComponent implements OnInit {
 
   //Aquesta funció serveix per eliminar un pictograma
   deletePictogram(pictogram) {
-    if (window.confirm('Estas segur que vols eliminar aquest pictograma ?')) {
-      this.crudApi.DeletePictogram(pictogram.$key);
-      this.toastr.success(pictogram.firstName + ' eliminat!');
-    }
+    Swal.fire({
+      title: "Estas segur que vols eliminar aquest pictograma?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.crudApi.DeletePictogram(pictogram.$key);
+        Swal.fire({
+          icon: 'success',
+          title: 'Pictograma eliminat',
+          showConfirmButton: false, 
+          timer: 1500
+        })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Operació cancelada',
+          showConfirmButton: false, 
+          timer: 1500
+        })
+      }
+    })
   }
 
 }

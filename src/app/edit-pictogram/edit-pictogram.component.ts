@@ -4,6 +4,7 @@ import { CrudService } from '../shared/crud.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-pictogram',
@@ -56,7 +57,7 @@ export class EditPictogramComponent implements OnInit {
   // Aquesta funció serveix per actualitzar el formulari
   updateForm() {
     this.crudApi.UpdatePictogram(this.editForm.value);
-    this.toastr.success(this.editForm.controls['namePictogram'].value + 'actualizat correctament');
+    Swal.fire({ position: 'center', icon: 'success', title: 'Pictograma actualitzat', showConfirmButton: false, timer: 1500 })
     this.router.navigate(['/pictograms-list']);
   }
 

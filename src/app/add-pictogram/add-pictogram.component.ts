@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../shared/crud.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-pictogram',
@@ -12,7 +15,7 @@ export class AddPictogramComponent implements OnInit {
 
   public pictogramForm: FormGroup; 
 
-  constructor(public crudApi: CrudService, public fb: FormBuilder, public toastr: ToastrService) { }
+  constructor(public crudApi: CrudService, public fb: FormBuilder, private router: Router, public toastr: ToastrService) { }
 
   ngOnInit() {
     this.crudApi.GetPictogramsList();
@@ -40,7 +43,8 @@ export class AddPictogramComponent implements OnInit {
 
   submitPictogramData() {
     this.crudApi.AddPictogram(this.pictogramForm.value);
-    this.toastr.success(this.pictogramForm.controls['namePictogram'].value + 'afegit correctament!');
+    Swal.fire({ position: 'center', icon: 'success', title: 'Pictograma afegit', showConfirmButton: false, timer: 1500 })
     this.ResetForm();
+    this.router.navigate(['/pictograms-list']);
   }
 }

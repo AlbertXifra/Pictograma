@@ -21,6 +21,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { WebPictogramComponent } from './web-pictogram/web-pictogram.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddPictogramComponent,
     EditPictogramComponent,
     PictogramsListComponent,
+    WebPictogramComponent,
   ],
   imports: [
     BrowserModule,

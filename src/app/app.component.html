@@ -7,8 +7,8 @@
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
         <!-- Autentificació amb Google -->
-        <a class="nav-link" routerLink="/pictograms-list" (click)="authService.GoogleAuth()">
-            <span class="user-image" style="background-image: url('assets/user.png')"></span>
+        <a class="nav-link" routerLink="/pictograms-list">
+            <span class="user-image" style="background-image: url('assets/user.png')" (click)="authService.GoogleAuth()"></span>
         </a>
       </li>
     </ul>
@@ -27,6 +27,10 @@
             <li class="nav-item">
               <!-- Link per anar el Component List-Pictogram -->
               <a class="nav-link" routerLink="/pictograms-list"routerLinkActive="active">Llista Pictogrames</a>
+            </li>
+            <li class="nav-item">
+              <!-- Link per anar el Component Web-Pictogram -->
+              <a class="nav-link" routerLink="/web-pictogram" routerLinkActive="active">Crear Pàgina Pictogrames</a>
             </li>
           </ul>
         </div>
