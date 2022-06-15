@@ -2,6 +2,13 @@
     <h2 class="h2" routerLink="/pictograms-list">Web Pictogrames</h2>
 </div>
 
-<div>
-    <h1 style="text-align: center;">En procés de desenvolupament</h1>
+<div style= "height: 282px; overflow-y: scroll;">
+    <div class="card" *ngFor=" let pictogram of Pictogram">
+        <img src="{{ pictogram.imagePictogram }}"/>
+        <div class="container">
+            <p>{{ pictogram.namePictogram }}</p>
+          </div>
+    </div>
 </div>
+
+<div class="h3">Panell Pictogrames</div>
